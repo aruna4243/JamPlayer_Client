@@ -1,19 +1,28 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/login';
+import { HashRouter } from 'react-router-dom';
+import { LoginLayout } from './components/login/home';
+
 import Dashboard from './pages/dashboard';
 import Room from './pages/room';
 
+
+import { localDataProvider } from './components/localDataProvider';
+// import Login from './pages/login';
 function App() {
   return (
-    <Router>
+       <HashRouter>
+        <localDataProvider.Provider
+         value={{}}
+        >
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={< LoginLayout/>} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/room" element={<Room />} />
       </Routes>
-    </Router>
+    </localDataProvider.Provider>
+    </HashRouter>
   );
 }
 

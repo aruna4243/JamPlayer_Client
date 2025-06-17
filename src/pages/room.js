@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import ReactPlayer from 'react-player';
 import { useNavigate } from 'react-router-dom';
-
-const socket = io('http://localhost:4000');
+import URL from "../config/url.json"
+const socket = io(URL?.baseUrl);
 
 const Room = () => {
   const [joined, setJoined] = useState(false);
